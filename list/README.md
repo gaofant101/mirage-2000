@@ -1,5 +1,16 @@
 ## @移动知识
 
+### @事件回调 || 方法执行时
+
+```javascript
+// 可以提升性能
+inputElement.addEventListener('event', function() {
+    setTimeout(() => {
+        dosomething...
+    }, 0);
+});
+```
+
 ### @`meta` 注解
 
 - `<meta charset="utf-8">` 编码格式
