@@ -90,7 +90,9 @@
 
 ## @ 另一种更粗狂的适配
 
-无论多宽都已`640px`为基准缩放显示;(这个是到处看M站点,在网易M站抄到的)
+无论多宽都已`640px`为基准缩放显示;   
+(这个是到处看M站点,在网易M站抄到的);   
+但是当时用这个设置的时候会出现一个问题,就是设备像素大于`640px`的时候,页面缩放成`640px`时没有撑满屏幕的时候右边会留白;
 ```html
 <meta content="target-densitydpi=device-dpi,width=640,user-scalable=no" name="viewport">
 ```
@@ -106,8 +108,8 @@
 // 配合使用 postcss px2rem autoprefixer
 
 .test{
-    font-size: 28px;  /*px*/ 转换成像素
-    border: 1px solid #ccc; /*no*/ 使插件忽略
+    font-size: 28px;  /*px*/ // 转换成像素
+    border: 1px solid #ccc; /*no*/ // 使插件忽略
 }
 ```
 ```css
