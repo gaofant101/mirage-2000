@@ -1,0 +1,34 @@
+## @移动知识
+
+### @`meta` 注解
+
+- `<meta charset="utf-8">` 编码格式
+- `<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">` `IE=edge` 告诉 `IE` 使用最新的引擎渲染网页, `chrome=1` 则可以激活 `Chrome Frame`
+- `<meta content="yes" name="apple-mobile-web-app-capable">` 开启全屏模式
+- `<meta content="yes" name="apple-touch-fullscreen">`
+- `<meta name="keywords" content="">` 网站关键字
+- `<meta content="" name="description">` 网站描述内容
+- `<meta content="telephone=no,email=no,adress=no" name="format-detection">` 忽略将页面中的数字识别为电话号码 不让 `Android` 识别邮箱 不调用地图
+- `<meta content="fullscreen=yes,preventMove=no" name="ML-Config">`
+- `<meta name="author" content="G.fan">` 作者
+- `<meta name="copyright" content="">` 版权
+- `<meta name="screen-orientation" content="portrait">` uc强制竖屏
+- `<meta name="x5-orientation" content="portrait">`     QQ强制竖屏
+- `<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />` 页面窗口自动调整到设备宽度，并禁止用户缩放页面
+- `<meta name="apple-mobile-web-app-status-bar-style" content="black" />` 将网站添加到主屏幕快速启动方式，仅针对 `ios` 的 `safari` 顶端状态条的样式
+
+### @`link` 注解
+
+- `<link rel="apple-touch-icon" href="">`
+- `<link rel="prefetch" href="">` 资源预加载
+- `<link rel="dns-prefetch" href="">` `dns` 预解析
+- `<link rel='prerender' href=''>` 预渲染
+- `<link rel="next" href="">` `Firefox` 中预渲染声明
+- `<link rel="stylesheet" href="styles/style.css">`
+
+> 不是所有的资源都可以预加载: `URL` 中包含下载资源、页面中包含音频、视频、`POST`、`PUT` 和 `DELETE` 操作的 `ajax` 请求、`HTTPS` 页面、含恶意软件的页面、弹窗页面、占用资源很多的页面
+
+
+## @参考
+
+<a href="https://www.w3cplus.com/mobile/mobile-terminal-refactoring-create-page.html" target="_blank">移动端重构系列2——新建空白页面</a>
