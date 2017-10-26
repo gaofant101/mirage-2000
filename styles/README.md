@@ -1,6 +1,6 @@
-# @issues
+# @ issues
 
-## `CSS3`动画性能
+## @ `CSS3`动画性能
 
 - `CSS3`动画的定位设置,会触发页面的重排`relayout` 重绘`repaint` 重组`recomposite`
 - `paint` 是最花费性能的, `CSS3`中`transform`只会触发`composite`, 而通过定位实现的动画(`left right top bottom`)会额外的触发`layout` `paint`
@@ -11,7 +11,7 @@
 - `box-shadows` 和 `gradients` 性能杀手,尽可能少用
 
 
-## `1px border`的实现
+## @ `1px border`的实现
 
 在`Retina`屏幕中 `1px`会显示成2个物理像素,目前有2个解决方案;
 
@@ -41,12 +41,12 @@
 }
 ```
 
-## 全局样式
+## @ 全局样式
 
 - `-webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: transparent;` 取消默认选中背景颜色
 - `user-select: none;` 用户不能选择
 - `-webkit-text-size-adjust: 100%` 禁止文字缩放
 
-## 你想要的
+## @ 你想要的
 
 <a href="http://browserhacks.com/" target="_blank">各种hack -> BROWSERHACKS</a>

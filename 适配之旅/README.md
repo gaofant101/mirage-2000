@@ -1,30 +1,30 @@
-## @`kill`
+# @ `kill`
 
 13年中旬刚入移动端坑的时候以为天下太平,从此兼容是路人;   
 没想到啊,没想到,从一个坑跳到了另一个坑;
 
-### @入门 (百分比`%`)
+## @ 入门 (百分比`%`)
 
 当初移动端网页还被称为`wap`;   
 入门的第一个`ui`库就是`jquery-mobile`,因为`jQuery`的影响力`jquery-mobile`也被大家关注;   
 上手快是理所当然,在很短的时间内就搭出来一个小型的网站;   
 刚开始理解的适配就是百分比`%`来设置宽高,然后用媒体查询器`@media`进行像素适配;   
 
-### @新的单位`rem`
+## @ 新的单位`rem`
 
-#### `px`
+### `px`
 
 通常我们使用`px`作为文本单文,可以比较准确的设置大小和定位;
 
-#### `em`
+### `em`
 
 如果浏览器放大或者缩小时`px`就不尽人意了;`em`就映入眼帘,`em`是通过父级元素字体大小来进行换算的,`1 ÷ 父元素的font-size × 需要转换的像素值 = em值`;但是他的问题就出现在`em`受所有父级元素字体大小的影响;层级深了,对样式表没有规划好很容易造成不是预计的大小;
 
-#### `rem`
+### `rem`
 
 `css3`带来了新的单位 `font size of the root element` (略显得是`em`的升级版),`rem`是相对于`html`根元素的字体大小,在一个相对值换算下就能保证预算值的正确性;
 
-### 设置`html`的`font-size`
+## @ 设置`html`的`font-size`
 
 ```javascript
 // 早期设置html font-size 值的js
@@ -82,14 +82,14 @@
 }
 ```
 
-### 另一种更粗狂的适配
+## @ 另一种更粗狂的适配
 
 无论多宽都已`640px`为基准缩放显示;(这个是到处看M站点,在网易M站抄到的)
 ```html
 <meta content="target-densitydpi=device-dpi,width=640,user-scalable=no" name="viewport">
 ```
 
-### `flexible`方案
+## @ `flexible`方案
 
 手淘出品,经受了双十一的考验
 ```html
@@ -124,7 +124,7 @@
 
 配置好工作流,全自动,完全担心换算错误;
 
-### `vw` 和 `vh`
+## @ `vw` 和 `vh`
 
 - `vw`: 是 `Viewport's width` 的简写, `1vw` 等于 `window.innerWidth` 的 `1%``
 - `vh`: 和 `vw` 类似,是`Viewport's height` 的简写, `1vh` 等于 `window.innerHeihgt` 的 `1%`
