@@ -1,6 +1,6 @@
-## @各种坑
+# @各种坑
 
-### @`iOS`中 `fixed`之坑
+## @`iOS`中 `fixed`之坑
 
 ```html
 <!DOCTYPE html>
@@ -74,7 +74,7 @@ input{
 ```
 
 
-### @`input`的 `compositionstart` 和 `compositionend`
+## @`input`的 `compositionstart` 和 `compositionend`
 
 想象一个场景,用户输入内容,我们要对用户输入的内容进行检查限制;   
 理想状态是用户输入完内容过后才对输入的内容进行判断,但是`iOS`中会出现用户触摸虚拟键盘的每一个按钮都会触发检查机制,这显然不是我们想要的;   

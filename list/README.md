@@ -1,6 +1,6 @@
-## @移动知识
+# @移动知识
 
-### @事件回调 || 方法执行时
+## @事件回调 || 方法执行时
 
 ```javascript
 // 可以提升性能
@@ -11,7 +11,7 @@ inputElement.addEventListener('event', function() {
 });
 ```
 
-### @`meta` 注解
+## @`meta` 注解
 
 - `<meta charset="utf-8">` 编码格式
 - `<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">` `IE=edge` 告诉 `IE` 使用最新的引擎渲染网页, `chrome=1` 则可以激活 `Chrome Frame`
@@ -28,7 +28,7 @@ inputElement.addEventListener('event', function() {
 - `<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />` 页面窗口自动调整到设备宽度，并禁止用户缩放页面
 - `<meta name="apple-mobile-web-app-status-bar-style" content="black" />` 将网站添加到主屏幕快速启动方式，仅针对 `ios` 的 `safari` 顶端状态条的样式
 
-### @`link` 注解
+## @`link` 注解
 
 - `<link rel="apple-touch-icon" href="">`
 - `<link rel="prefetch" href="">` 资源预加载
