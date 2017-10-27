@@ -1,5 +1,50 @@
 # @ 各种坑
 
+## @用`vue`写的web应用在微信中分享的小问题
+
+前端自理路由,会出现页面切换微信分享失败的问题;   
+发现`iOS`分享正常,`Android`部分机型正常部分机型不正常(相同机型不同系统也存在差异);   
+经过大量真机测试,发现`iOS`主需要签名一次整个webapp都能正常分享,那么我们先把`iOS`正常的状态给保证好;   
+`Android`中测试,每次跳转都重新去生成签名可以解决大部分机型分享的问题,会存在同一种机型但是不同系统出现分享不正常的问题,这个目前还没有想到好的解决办法;   
+解决思路:   
+##### 这段代码使用在2016年,不知道过了这么久微信或者`vue`有没有处理好这种问题;
+```javascript
+// vue2.1 vue-router2.1.1
+// route.js
+const router = new Router({
+    mode: 'history',
+    base: __dirname,
+    ...
+});
+
+// 每次切换路由,都调用签名
+// 定义一个开关
+let wxhttpStatus = false
+router.afterEach(route => {
+    wxoauth(wxhttpStatus)
+    if (!/Android/i.test(navigator.userAgent) && !wxhttpStatus) {
+        wxhttpStatus = true
+    }
+})
+
+// wxoauth.js
+// 如果开关为true时 不去签名
+export default function (wxhttpStatus) {
+    if (wxhttpStatus) return
+    Promise.resolve()
+    .then(() => window.location.href)
+    .then((res) => {
+        return axios.get('link?url' + encodeURIComponent(res.split('#')[0]))
+    }).then(function (response) {
+        if (response.object !== null) {
+            wx.config({
+                ...
+            })
+        }
+    })
+}
+```
+
 ## @ `iOS`中 `fixed`之坑
 
 ```html
