@@ -99,7 +99,7 @@
 
 ## @ `flexible`方案
 
-手淘出品,经受了双十一的考验
+手淘出品,经过了大厂的磨练
 ```html
 // 引入插件
 <script src="http://g.tbcdn.cn/mtb/lib-flexible/{{version}}/??flexible.js"></script>
