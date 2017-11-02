@@ -46,6 +46,7 @@
 - `-webkit-tap-highlight-color: rgba(0, 0, 0, 0); -webkit-tap-highlight-color: transparent;` 取消默认选中背景颜色
 - `user-select: none;` 用户不能选择
 - `-webkit-text-size-adjust: 100%` 禁止文字缩放
+- `<input type="text" autocomplete="off" name="sometext" />` 禁止浏览器自动填充
 
 ## @ 你想要的
 
