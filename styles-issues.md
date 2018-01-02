@@ -50,4 +50,4 @@
 
 ## @ 你想要的
 
-<a href="http://browserhacks.com/" target="_blank">各种hack -> BROWSERHACKS</a>
+[各种hack -> BROWSERHACKS](http://browserhacks.com/)

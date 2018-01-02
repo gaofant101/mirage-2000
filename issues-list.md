@@ -154,7 +154,6 @@ inputElement.addEventListener('input', function(event) {
 
 ## @ 参考
 
-<a href="https://github.com/twbs/ratchet" target="_blank">twbs/ratchet</a>
+[twbs/ratchet](https://github.com/twbs/ratche)
 
-
-<a href="http://www.alloyteam.com/2015/06/yi-dong-web-wen-ti-xiao-jie/" target="_blank">移动web问题小结</a>
+[移动web问题小结](http://www.alloyteam.com/2015/06/yi-dong-web-wen-ti-xiao-jie/)
