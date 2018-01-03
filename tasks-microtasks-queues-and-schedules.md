@@ -39,7 +39,9 @@ setTimeout callbacks are queued as tasks
 
 ### 任务队列<5>
 
+```
 Promise callbacks are queued as microtasks
+```
 
 ### 任务队列<6>
 
