@@ -1,4 +1,34 @@
-# @ `tasks-microtasks-queues-and-schedules`
+# @ `event-loop`
+
+```
+   ┌───────────────────────┐
+┌─>│        timers         │
+│  └──────────┬────────────┘
+│  ┌──────────┴────────────┐
+│  │     I/O callbacks     │
+│  └──────────┬────────────┘
+│  ┌──────────┴────────────┐
+│  │     idle, prepare     │
+│  └──────────┬────────────┘      ┌───────────────┐
+│  ┌──────────┴────────────┐      │   incoming:   │
+│  │         poll          │<─────┤  connections, │
+│  └──────────┬────────────┘      │   data, etc.  │
+│  ┌──────────┴────────────┐      └───────────────┘
+│  │        check          │
+│  └──────────┬────────────┘
+│  ┌──────────┴────────────┐
+└──┤    close callbacks    │
+   └───────────────────────┘
+```
+
+### 阶段概述
+
+`timers`: 这个阶段执行setTimeout() 和调度的回调setInterval()   
+`I/O callbacks`: 执行几乎所有的回调函数, 除了关闭的回调函数, 定时器计划的回调函数和setImmediate()   
+`idle, prepare`: 只在内部使用   
+`poll`: 检索新的I/O事件; 节点将在适当的时候阻塞   
+`check`: setImmediate()在这里调用回调   
+`close callbacks`: 例如socket.on('close', ...)   
 
 ## @ 例子
 
@@ -185,5 +215,7 @@ And that's this task done! The browser may update rendering
 ## @ 参考
 
 [tasks-microtasks-queues-and-schedules](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+
+[event-loop-timers-and-nexttick](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 
 [MutationObserver](https://developer.mozilla.org/zh-CN/docs/Web/API/MutationObserver)
