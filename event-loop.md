@@ -30,6 +30,11 @@
 `check`: setImmediate()在这里调用回调   
 `close callbacks`: 例如socket.on('close', ...)   
 
+### 体现
+
+`macrotasks`: `setTimeout` `setInterval` `setImmediate` `I/O` `UI渲染`   
+`microtasks`: `Promise` `process.nextTick` `Object.observe` `MutationObserver`
+
 ## @ 例子
 
 我们直接用例子来看看 `tasks` 运行流程, 默记一下打印的内容顺序是什么.
