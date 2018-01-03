@@ -3,7 +3,6 @@
 ## @ 例子
 
 我们直接用例子来看看 `tasks` 运行流程, 默记一下打印的内容顺序是什么.
-
 ```javascript
 console.log('script start');
 
@@ -19,199 +18,187 @@ Promise.resolve().then(function() {
 
 console.log('script end');
 ```
-```java
-// step1
 
-Tasks: [run script]   
-Microtasks:    
-JSStack: [script]   
-Log:   
+### 队列<1>
+
+`Tasks`: [`run script`]   
+`Microtasks`:    
+`JSStack`: [`script`]   
+`Log`:   
+
+
+### 队列<2>
+
+`Tasks`: [`run script`]   
+`Microtasks`:    
+`JSStack`: [`script`]   
+`Log`: [`script start`]
+
+### 队列<3>
+
 ```
-```java
-// step2
-
-Tasks: [run script]   
-Microtasks:    
-JSStack: [script]   
-Log: [script start]
-```
-```java
-// step3   
-
 setTimeout callbacks are queued as tasks
 ```
-```java
-// step4
 
-Tasks: [run script], [setTimeout callback]
-Microtasks:    
-JSStack: [script]   
-Log: [script start]
-```
-```java
-// step5
+### 队列<4>
+
+`Tasks`: [`run script`], [`setTimeout callback`]    
+`Microtasks`:    
+`JSStack`: [`script`]   
+`Log`: [`script start`]
+
+### 队列<5>
 
 Promise callbacks are queued as microtasks
-```
-```java
-// step6
 
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then]
-JSStack: [script]   
-Log: [script start]
-```
-```java
-// step7
+### 队列<6>
 
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then]
-JSStack: [script]   
-Log: [script start], [script end]
-```
-```java
-// step8
+`Tasks`: [`run script`], [`setTimeout callback`]    
+`Microtasks`: [`Promise then`]    
+`JSStack`: [`script`]     
+`Log`: [`script start`]    
 
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then]
-JSStack:    
-Log: [script start], [script end]  
-```
-```java
-// step9
+### 队列<7>
 
+`Tasks`: [`run script`], [`setTimeout callback`]    
+`Microtasks`: [`Promise then`]   
+`JSStack`: [`script`]    
+`Log`: [`script start`], [`script end`]   
+
+### 队列<8>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`]   
+`JSStack`:    
+`Log`: [`script start`], [`script end`]  
+
+### 队列<9>
+
+```
 At the end of a task, we process microtasks
 ```
-```java
-// step10
 
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then] // 准备执行
-JSStack:    
-Log: [script start], [script end]  
+### 队列<10>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`] // 准备执行   
+`JSStack`:      
+`Log`: [`script start`], [`script end`]     
+
+### 队列<11>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`]   
+`JSStack`: [`Promise callback`]   
+`Log`: [`script start`], [`script end`]     
+
+### 队列<12>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`]   
+`JSStack`: [`Promise callback`]   
+`Log`: [`script start`], [`script end`], [`promise1`]
+
+### 队列<13>
+
 ```
-```java
-// step11
-
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then]
-JSStack: [Promise callback]
-Log: [script start], [script end]  
-```
-```java
-// step12
-
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then]
-JSStack: [Promise callback]
-Log: [script start], [script end], [promise1]
-```
-```java
-// step13
-
 This promise callback returns 'undefined', which queues the next promise callback as a microtask
 ```
-```java
-// step14
 
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then], [Promise then]
-JSStack: [Promise callback]
-Log: [script start], [script end], [promise1]
+### 队列<14>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`], [`Promise then`]   
+`JSStack`: [`Promise callback`]   
+`Log`: [`script start`], [`script end`], [`promise1`]
+
+### 队列<15>
+
 ```
-```java
-// step15
-
 This microtask is done so we move onto the next one in the queue
-
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then], [Promise then]
-JSStack:
-Log: [script start], [script end], [promise1]
 ```
-```java
-// step16
 
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then]
-JSStack:
-Log: [script start], [script end], [promise1]
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`], [`Promise then`]   
+`JSStack`:   
+`Log`: [`script start`], [`script end`], [`promise1`]   
+
+
+### 队列<16>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`]   
+`JSStack`:   
+`Log`: [`script start`], [`script end`], [`promise1`]
+
+### 队列<17>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`]   
+`JSStack`: [`Promise callback`]   
+`Log`: [`script start`], [`script end`], [`promise1`]
+
+### 队列<18>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`: [`Promise then`]   
+`JSStack`: [`Promise callback`]   
+`Log`: [`script start`], [`script end`], [`promise1`], [`promise2`]   
+
+### 队列<19>
+
+`Tasks`: [`run script`], [`setTimeout callback`]   
+`Microtasks`:   
+`JSStack`:   
+`Log`: [`script start`], [`script end`], [`promise1`], [`promise2`]   
+
+### 队列<20>
+
 ```
-```java
-// step17
-
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then]
-JSStack: [Promise callback]
-Log: [script start], [script end], [promise1]
-```
-```java
-// step18
-
-Tasks: [run script], [setTimeout callback]
-Microtasks: [Promise then]
-JSStack: [Promise callback]
-Log: [script start], [script end], [promise1], [promise2]
-```
-```java
-// step19
-
-Tasks: [run script], [setTimeout callback]
-Microtasks:
-JSStack:
-Log: [script start], [script end], [promise1], [promise2]
-```
-```java
-// step20
-
 And that's this task done! The browser may update rendering
 ```
-```java
-// step21
 
-Tasks: [setTimeout callback]
-Microtasks:
-JSStack:
-Log: [script start], [script end], [promise1], [promise2]
+### 队列<21>
+
+`Tasks`: [`setTimeout callback`]   
+`Microtasks`:   
+`JSStack`:   
+`Log`: [`script start`], [`script end`], [`promise1`], [`promise2`]   
+
+### 队列<22>
+
+`Tasks`: [`setTimeout callback`]   
+`Microtasks`:   
+`JSStack`: [`setTimeout callback`]   
+`Log`: [`script start`], [`script end`], [`promise1`], [`promise2`]   
+
+### 队列<23>
+
+`Tasks`: [`setTimeout callback`]   
+`Microtasks`:   
+`JSStack`: [`setTimeout callback`]   
+`Log`: [`script start`], [`script end`], [`promise1`], [`promise2`],[`setTimeout`]
+
+### 队列<24>
+
+`Tasks`: [`setTimeout callback`]   
+`Microtasks`:   
+`JSStack`:   
+`Log`: [`script start`], [`script end`], [`promise1`], [`promise2`],[`setTimeout`]
+
+### 队列<25>
+
+`Tasks`:   
+`Microtasks`:   
+`JSStack`:   
+`Log`: [`script start`], [`script end`], [`promise1`], [`promise2`],[`setTimeout`]
+
+### 队列<26>
+
+`Finsh`
+
 ```
-```java
-// step22
-
-Tasks: [setTimeout callback]
-Microtasks:
-JSStack: [setTimeout callback]
-Log: [script start], [script end], [promise1], [promise2]
-```
-```java
-// step23
-
-Tasks: [setTimeout callback]
-Microtasks:
-JSStack: [setTimeout callback]
-Log: [script start], [script end], [promise1], [promise2],[setTimeout]
-```
-```java
-// step24
-
-Tasks: [setTimeout callback]
-Microtasks:
-JSStack:
-Log: [script start], [script end], [promise1], [promise2],[setTimeout]
-```
-```java
-// step25
-
-Tasks:
-Microtasks:
-JSStack:
-Log: [script start], [script end], [promise1], [promise2],[setTimeout]
-```
-```java
-// step26
-
-Finsh
-
-Log: [script start], [script end], [promise1], [promise2],[setTimeout]
+Log: [`script start`], [`script end`], [`promise1`], [`promise2`],[`setTimeout`]
 ```
 
 ## @ 参考
