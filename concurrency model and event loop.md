@@ -64,12 +64,6 @@ console.log('script end');
 
 13. 到此所有的`task`执行完毕; 任务列队处于空闲状态;
 
-> 结果以`chrome`为基准; 在`firefox`、`safari`、`windows browser`中可能不一样; 差异化可以查看[Jake Archibald blog](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
-
-### `Even Loop`
-
-![](https://cdn.int64ago.org/6p10znqn.png)
-
 ### 过程图解
 
 ### `Queue<1>`
@@ -154,6 +148,12 @@ console.log('script end');
 
 ![](/images/tasks-01-03-0020.jpg)
 
+
+> 结果以`chrome`为基准; 在`firefox`、`safari`、`windows browser`中可能不一样; 差异化可以查看[Jake Archibald blog](https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/)
+
+### `Even Loop`
+
+![](https://cdn.int64ago.org/6p10znqn.png)
 
 ## @ 参考
 
