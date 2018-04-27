@@ -11,3 +11,5 @@
 [@`html5` 样例](https://github.com/evanhunt/mirage-2000/blob/master/html5-template.html)
 
 [@`css`全局](https://github.com/evanhunt/mirage-2000/blob/master/normalize.css)
+
+[@ 钉钉`WEB`扫码登录](https://github.com/evanhunt/mirage-2000/blob/master/dingding_qcode_auth.md)
